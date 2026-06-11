@@ -155,6 +155,11 @@
   .product .tagline { color: var(--teal-dark); font-size: 0.98rem; font-weight: 500; margin-bottom: 0; }
   .product .body p { margin-bottom: 14px; color: var(--ink-soft); font-size: 0.97rem; }
   .product .body strong { color: var(--navy); }
+  .product .desc { border-radius: 12px; padding: 24px 26px; margin-bottom: 18px; }
+  .product .desc p:last-child { margin-bottom: 0; }
+  .product.emery .desc { background: #e9eef9; }
+  .product.capsa .desc { background: #eef2e6; }
+  .product.addie .desc { background: #e4eaf5; }
   .uses { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
   .uses span {
     font-size: 0.81rem; background: var(--bg); border: 1px solid var(--line);
@@ -278,7 +283,7 @@
     <p>Built with older adults in mind: simple to talk to, easy for family to set up, and private by design. Available first on Claude and ChatGPT, with mobile apps to follow.</p>
   </div>
 
-  <div class="product">
+  <div class="product emery">
     <div>
       <a href="emery.html"><img class="avatar" src="assets/emery-avatar.png" alt="Emery, the Companion"></a>
       <div class="badge building">Beta Release</div>
@@ -288,10 +293,12 @@
       <a class="meet" href="emery.html">Meet Emery</a>
     </div>
     <div class="body">
+      <div class="desc">
       <p>AI-powered memory support for people living with dementia, Alzheimer's, or everyday short-term memory loss. Emery helps with the things that slip: what's happening today, what needs doing, and who's who. The name is its own mnemonic: one sound away from "memory," easy to call out when you need it.</p>
       <p>Emery keeps each day on track. She manages your calendar and task list, <strong>builds you a simple daily plan</strong>, and gives gentle reminders so nothing falls through the cracks: appointments, medications, birthdays, the kettle you put on.</p>
       <p>She also helps you hold on to people and moments. Take or upload a photo and simply ask: <strong>"Who is this?"</strong> Emery recognizes family and friends from a private knowledge base built from your own photo library, and answers warmly and conversationally.</p>
       <p>Family members or caregivers set it up once with the photos, names, and routines that matter; from then on it's as simple as asking. Everything stays on the family's own infrastructure. Nothing is shared, sold, or used for training.</p>
+      </div>
       <div class="uses">
         <span>"What's my plan for today?"</span>
         <span>"What's happening tomorrow?"</span>
@@ -302,7 +309,7 @@
     </div>
   </div>
 
-  <div class="product">
+  <div class="product capsa">
     <div>
       <a href="capsa.html"><img class="avatar" src="assets/capsa-avatar.png" alt="Capsa, the Curator"></a>
       <div class="badge preview">Coming Soon</div>
@@ -312,9 +319,11 @@
       <a class="meet" href="capsa.html">Meet Capsa</a>
     </div>
     <div class="body">
+      <div class="desc">
       <p>Your photos are scattered across Google Photos, iCloud, Dropbox, old laptops, and external drives. Capsa, named for the case Romans used to protect the scrolls they cared enough to keep, gathers all of them into one organized collection on hardware you own, sorted by year, event, and the people in them.</p>
       <p>Then comes the part no shoebox of prints could do. Build albums the way you once did by hand, and add the piece no photo can capture: <strong>record yourself telling the story</strong>. The Slideshow feature plays your pictures with your own voice narrating, in your words, for your grandchildren and theirs.</p>
       <p>The AI sees only small thumbnails, just enough to sort intelligently. <strong>Your full-resolution photos never leave your machine</strong>, with optional cloud backup as a second copy, never the master.</p>
+      </div>
       <div class="uses">
         <span>Family albums</span>
         <span>Narrated slideshows</span>
@@ -324,7 +333,7 @@
     </div>
   </div>
 
-  <div class="product">
+  <div class="product addie">
     <div>
       <a href="addie.html"><img class="avatar" src="assets/addie-avatar.png" alt="Addie, the Guardian"></a>
       <div class="badge preview">Coming Soon</div>
@@ -334,9 +343,11 @@
       <a class="meet" href="addie.html">Meet Addie</a>
     </div>
     <div class="body">
+      <div class="desc">
       <p>In a world filling up with AI-generated images, Addie certifies what's genuine. Hand her a photo or document and she seals it: a visible code, woven into the picture itself, that proves who created it, when it existed, and that <strong>it hasn't been altered since</strong>.</p>
       <p>The seal carries your story with it: who is in the picture, where it was taken, what it meant. Add to that story over years and every version stays linked to the original, so nothing is ever lost or rewritten.</p>
       <p>Use Addie on her own to certify a single precious photo, or let her quietly certify everything in your Capsa collection, so the pictures you pass down can be <strong>proven real by your great-grandchildren</strong>.</p>
+      </div>
       <div class="uses">
         <span>Certify a photo or document</span>
         <span>Survives copies, posts &amp; print</span>
