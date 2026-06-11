@@ -45,7 +45,9 @@
     background: rgba(255,255,255,0.94); backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 13px 24px; max-width: 1080px; margin: 0 auto; }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 13px 24px; max-width: 1080px; margin: 0 auto; }
+  .nav-inner .logo { justify-self: start; }
+  .nav-inner .nav-cta { justify-self: end; }
   .logo { display: flex; align-items: center; gap: 10px; }
   .logo svg { width: 38px; height: 38px; }
   .logo .word { font-weight: 600; font-size: 1.3rem; letter-spacing: 0.01em; color: var(--navy); }
@@ -69,7 +71,7 @@
   }
   .hero h1 { font-size: clamp(2.1rem, 5vw, 3.3rem); max-width: 860px; margin: 0 auto 22px; font-weight: 700; }
   .hero h1 em { font-style: normal; color: var(--teal-dark); }
-  .hero p.sub { font-size: 1.13rem; color: var(--ink-soft); max-width: 660px; margin: 0 auto 36px; }
+  .hero p.sub { font-size: 1.13rem; color: var(--ink-soft); max-width: 760px; margin: 0 auto 36px; text-wrap: pretty; }
   .kicker {
     display: inline-block; font-family: "Caveat", cursive; font-weight: 600;
     font-size: clamp(2.1rem, 4.5vw, 2.8rem); line-height: 1.2;
@@ -235,6 +237,8 @@
       <a href="#products">Products</a>
       <a href="#philosophy">What We Believe</a>
       <a href="#tessera">Tessera Protocol</a>
+    </div>
+    <div class="nav-cta">
       <a href="mailto:hello@spirantix.ai" class="btn">Contact Us</a>
     </div>
   </div>
@@ -244,8 +248,7 @@
   <svg class="swirl-bg" viewBox="0 0 100 100" aria-hidden="true"><use href="#spirantix-mark"/></svg>
   <div class="kicker">AI that makes life better</div>
   <h1>Your memories, your stories, your life. <em>Kept close.</em></h1>
-  <p class="sub">Spirantix builds AI companions that help people get through each day with confidence: remembering the faces they love, staying on top of appointments and daily to-dos, and preserving the stories behind their photos for the next generation. Designed for your parents, your grandparents, and someday you. All of it stays on hardware your family owns.</p>
-  <a href="#products" class="btn btn-lg">Meet the Agents</a>
+  <p class="sub">Spirantix builds AI companions that help people get through each day with confidence: remembering the faces they love, staying on top of appointments and daily to-dos, and preserving the stories behind their photos for the next generation. Designed especially for seniors and their families. All of it stays on hardware you own.</p>
 </header>
 
 <section class="philosophy" id="philosophy">
