@@ -64,20 +64,37 @@
   /* Hero */
   .hero { padding: 92px 0 84px; text-align: center; position: relative; overflow: hidden; }
   .hero .swirl-bg {
-    position: absolute; width: 560px; height: 560px; right: -160px; top: -120px;
-    opacity: 0.07; pointer-events: none;
+    position: absolute; width: 470px; height: 470px; right: 0; top: 50%;
+    transform: translateY(-50%); opacity: 0.09; pointer-events: none;
   }
   .hero h1 { font-size: clamp(2.1rem, 5vw, 3.3rem); max-width: 860px; margin: 0 auto 22px; font-weight: 700; }
   .hero h1 em { font-style: normal; color: var(--teal-dark); }
   .hero p.sub { font-size: 1.13rem; color: var(--ink-soft); max-width: 660px; margin: 0 auto 36px; }
   .kicker {
     display: inline-block; font-family: "Caveat", cursive; font-weight: 600;
-    font-size: clamp(1.7rem, 3.5vw, 2.2rem); line-height: 1.2;
-    color: var(--teal-dark); margin-bottom: 18px; transform: rotate(-2deg);
+    font-size: clamp(2.1rem, 4.5vw, 2.8rem); line-height: 1.2;
+    color: #2e8fb8; margin-bottom: 18px; transform: rotate(-2deg);
+  }
+
+  /* Photo snapshots */
+  .snap {
+    position: absolute; pointer-events: none; border-radius: 5px;
+    border: 9px solid #fff; border-bottom-width: 26px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+  .philosophy .snap { opacity: 0.16; filter: saturate(0.75); }
+  .philosophy .snap.s1 { width: 250px; left: -34px; bottom: -34px; transform: rotate(-7deg); }
+  .philosophy .snap.s2 { width: 270px; right: -44px; top: 36px; transform: rotate(6deg); }
+  .contact .snap { opacity: 0.85; border-color: #fff; box-shadow: 0 8px 24px rgba(31,42,68,0.18); }
+  .contact .snap.s1 { width: 215px; left: 4%; top: 90px; transform: rotate(-6deg); }
+  .contact .snap.s2 { width: 230px; right: 4%; top: 70px; transform: rotate(5deg); }
+  @media (max-width: 1100px) {
+    .contact .snap { display: none; }
   }
 
   /* Beliefs */
-  .philosophy { padding: 76px 0; background: var(--navy); color: #e8edf5; }
+  .philosophy { padding: 76px 0; background: var(--navy); color: #e8edf5; position: relative; overflow: hidden; }
+  .philosophy .wrap { position: relative; }
   .philosophy h2 { text-align: center; font-size: 2rem; margin-bottom: 12px; color: #fff; }
   .philosophy p.lead { text-align: center; color: #aeb9cf; max-width: 620px; margin: 0 auto 48px; }
   .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; position: relative; }
@@ -152,7 +169,7 @@
   .seal p { color: var(--ink-soft); }
 
   /* Contact */
-  .contact { padding: 88px 0; text-align: center; }
+  .contact { padding: 88px 0; text-align: center; position: relative; overflow: hidden; }
   .contact h2 { font-size: 2rem; margin-bottom: 12px; }
   .contact p { color: var(--ink-soft); max-width: 540px; margin: 0 auto; }
 
@@ -161,6 +178,7 @@
   .foot-inner { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; color: var(--ink-soft); font-size: 0.88rem; }
 
   @media (max-width: 760px) {
+    .hero .swirl-bg { display: none; }
     .pillars { grid-template-columns: 1fr; }
     .pillars::before { display: none; }
     .product { grid-template-columns: 1fr; padding: 28px; }
@@ -218,6 +236,8 @@
 </header>
 
 <section class="philosophy" id="philosophy">
+  <img class="snap s1" src="assets/snap-emery-tablet.webp" alt="" aria-hidden="true">
+  <img class="snap s2" src="assets/snap-addie-family.webp" alt="" aria-hidden="true">
   <div class="wrap">
     <h2>What we believe</h2>
     <p class="lead">AI shouldn't just make work faster. It should make life better.</p>
@@ -268,14 +288,16 @@
       <a class="meet" href="emery.html">Meet Emery</a>
     </div>
     <div class="body">
-      <p>AI-powered memory support for people living with dementia and Alzheimer's. Emery helps users remember the faces, events, and places of their own lives. The name is its own mnemonic: one sound away from "memory," easy to call out when you need it.</p>
-      <p>Take or upload a photo and simply ask: <strong>"Who is this?"</strong> Emery recognizes family and friends from a private knowledge base built from the user's own photo library, and answers warmly and conversationally. Ask about past events, browse pictures of loved ones, or get gentle reminders about what's coming up.</p>
-      <p>Family members or caregivers set it up once with the photos and names that matter; from then on it's as simple as asking. All faces and personal information stay on the family's own infrastructure. Nothing is shared, sold, or used for training.</p>
+      <p>AI-powered memory support for people living with dementia, Alzheimer's, or everyday short-term memory loss. Emery helps with the things that slip: what's happening today, what needs doing, and who's who. The name is its own mnemonic: one sound away from "memory," easy to call out when you need it.</p>
+      <p>Emery keeps each day on track. She manages your calendar and task list, <strong>builds you a simple daily plan</strong>, and gives gentle reminders so nothing falls through the cracks: appointments, medications, birthdays, the kettle you put on.</p>
+      <p>She also helps you hold on to people and moments. Take or upload a photo and simply ask: <strong>"Who is this?"</strong> Emery recognizes family and friends from a private knowledge base built from your own photo library, and answers warmly and conversationally.</p>
+      <p>Family members or caregivers set it up once with the photos, names, and routines that matter; from then on it's as simple as asking. Everything stays on the family's own infrastructure. Nothing is shared, sold, or used for training.</p>
       <div class="uses">
-        <span>"Who is this?"</span>
-        <span>"Tell me about our trip to the Cape"</span>
-        <span>"Show me pictures of Sophie"</span>
+        <span>"What's my plan for today?"</span>
         <span>"What's happening tomorrow?"</span>
+        <span>"Who is this?"</span>
+        <span>"Show me pictures of Sophie"</span>
+        <span>"Remind me to take my pills at 8"</span>
       </div>
     </div>
   </div>
@@ -335,7 +357,9 @@
   </div>
 </section>
 
-<section class="contact wrap" id="contact">
+<section class="contact" id="contact">
+  <img class="snap s1" src="assets/snap-capsa-album.webp" alt="" aria-hidden="true">
+  <img class="snap s2" src="assets/snap-capsa-tablet.webp" alt="" aria-hidden="true">
   <h2>Questions?</h2>
   <p>Whether it's for you or someone you love, we'd be glad to hear from you. Reach us at <a href="mailto:hello@spirantix.ai">hello@spirantix.ai</a>.</p>
 </section>
