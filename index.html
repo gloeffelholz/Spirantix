@@ -90,12 +90,28 @@
   .section-head { text-align: center; margin-bottom: 52px; }
   .section-head h2 { font-size: 2rem; margin-bottom: 10px; }
   .section-head p { color: var(--ink-soft); max-width: 620px; margin: 0 auto; }
+
+  /* Three roles, one mission */
+  .trio { text-align: center; margin: 0 auto 56px; max-width: 560px; }
+  .trio h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 22px; letter-spacing: 0.02em; }
+  .trio .icons { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 22px; }
+  .trio .icons svg { width: 34px; height: 34px; }
+  .trio .icons .i-heart { stroke: var(--blue); }
+  .trio .icons .i-book { stroke: #3e7a4e; }
+  .trio .icons .i-shield { stroke: var(--navy); }
+  .trio .icons .dash { color: var(--ink-soft); letter-spacing: 2px; font-weight: 600; }
+  .trio .line { font-style: italic; color: var(--ink-soft); font-size: 1.05rem; }
   .product {
     display: grid; grid-template-columns: 1fr 1.6fr; gap: 36px;
     background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
     padding: 40px; margin-bottom: 28px; align-items: start;
     box-shadow: 0 2px 10px rgba(31,42,68,0.04);
   }
+  .product .avatar { width: 170px; height: 170px; border-radius: 50%; display: block; margin-bottom: 18px; box-shadow: 0 8px 24px rgba(31,42,68,0.14); transition: transform 0.2s; }
+  .product .avatar:hover { transform: scale(1.04); }
+  .product .archetype { font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--ink-soft); margin-bottom: 10px; }
+  .product .meet { display: inline-block; margin-top: 14px; font-weight: 600; font-size: 0.93rem; }
+  .product .meet::after { content: " \2192"; }
   .product .badge {
     display: inline-block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
     padding: 5px 13px; border-radius: 999px; margin-bottom: 14px;
@@ -117,7 +133,7 @@
   .seal-inner { display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
   .seal-mark { width: 88px; height: 88px; }
   .seal h2 { font-size: 1.6rem; margin-bottom: 10px; color: var(--navy); }
-  .seal p { color: var(--ink-soft); max-width: 680px; }
+  .seal p { color: var(--ink-soft); }
 
   /* Contact */
   .contact { padding: 88px 0; text-align: center; }
@@ -126,7 +142,7 @@
 
   /* Footer */
   footer { border-top: 1px solid var(--line); padding: 36px 0; background: #fff; }
-  .foot-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; color: var(--ink-soft); font-size: 0.88rem; }
+  .foot-inner { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; color: var(--ink-soft); font-size: 0.88rem; }
 
   @media (max-width: 760px) {
     .pillars { grid-template-columns: 1fr; }
@@ -151,6 +167,9 @@
       <circle cx="50" cy="50" r="7" fill="#ffffff"/>
       <circle cx="50" cy="50" r="3.2" fill="#2BAE9E"/>
     </g>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.4 4.6a5.5 5.5 0 0 0-7.8 0L12 5.2l-.6-.6a5.5 5.5 0 0 0-7.8 7.8l.6.6L12 20.8 19.8 13l.6-.6a5.5 5.5 0 0 0 0-7.8z" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h7a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2zM22 4h-7a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z" fill="none" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke-width="2" stroke-linejoin="round"/><path d="M9 11.5l2 2 4-4" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </defs>
 </svg>
 
@@ -202,6 +221,17 @@
 </section>
 
 <section class="products wrap" id="products">
+  <div class="trio">
+    <h2>Three roles.<br>One mission.</h2>
+    <div class="icons" aria-hidden="true">
+      <svg class="i-heart"><use href="#i-heart"/></svg>
+      <span class="dash">- - - -</span>
+      <svg class="i-book"><use href="#i-book"/></svg>
+      <span class="dash">- - - -</span>
+      <svg class="i-shield"><use href="#i-shield-check"/></svg>
+    </div>
+    <p class="line">Your memories. Their strengths. Together for generations.</p>
+  </div>
   <div class="section-head">
     <h2>The agents</h2>
     <p>Built with older adults in mind: simple to talk to, easy for family to set up, and private by design. Available wherever agents run, with the AI provider you choose.</p>
@@ -209,9 +239,12 @@
 
   <div class="product">
     <div>
-      <div class="badge building">First to Launch</div>
+      <a href="emery.html"><img class="avatar" src="assets/emery-avatar.png" alt="Emery, the Companion"></a>
+      <div class="badge building">Beta Release</div>
       <h3>Emery</h3>
+      <div class="archetype">The Companion &middot; She remembers.</div>
       <p class="tagline">Memory care, powered by your own life</p>
+      <a class="meet" href="emery.html">Meet Emery</a>
     </div>
     <div class="body">
       <p>AI-powered memory support for people living with dementia and Alzheimer's. Emery helps users remember the faces, events, and places of their own lives. The name is its own mnemonic: one sound away from "memory," easy to call out when you need it.</p>
@@ -269,7 +302,7 @@
   <div class="wrap seal-inner">
     <svg class="seal-mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#spirantix-mark"/></svg>
     <div>
-      <h2>Open underneath: the Tessera Protocol</h2>
+      <h2>The Tessera Protocol</h2>
       <p>Every seal Addie creates can be read without us. Tessera is the open, published standard for verifying a sealed file: anyone, with any tool, in any decade, can check that a photo is genuine and unchanged. In ancient Rome, a tessera hospitalis was a token split between two families; decades later, the matching halves could be rejoined to prove the bond. Tessera works the same way for your photos and stories, and it will keep working long after us. That's the point.</p>
     </div>
   </div>

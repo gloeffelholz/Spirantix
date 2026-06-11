@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capsa | The Curator | Spirantix.ai</title>
+<meta name="description" content="Capsa brings all your photos and memories together, no matter where they're stored, and helps you turn them into beautiful albums and voice-narrated slideshows. Private by design, in one place you control.">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="50" fill="%23ffffff"/%3E%3Cg%3E%3Cpath d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="%238FE0C6"/%3E%3Cpath d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="%234FC9B5" transform="rotate(60 50 50)"/%3E%3Cpath d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="%232BAE9E" transform="rotate(120 50 50)"/%3E%3Cpath d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="%232E8FB8" transform="rotate(180 50 50)"/%3E%3Cpath d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="%232368A8" transform="rotate(240 50 50)"/%3E%3Cpath d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="%231B4E82" transform="rotate(300 50 50)"/%3E%3C/g%3E%3Ccircle cx="50" cy="50" r="7" fill="%23ffffff"/%3E%3Ccircle cx="50" cy="50" r="3.2" fill="%232BAE9E"/%3E%3C/svg%3E'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1f2a44;
+    --ink: #1f2a44;
+    --ink-soft: #4a5570;
+    --bg: #f7fafa;
+    --card: #ffffff;
+    --teal: #2bae9e;
+    --teal-dark: #1d8f82;
+    --teal-soft: #e4f5f2;
+    --blue: #2368a8;
+    --orange: #f15a24;
+    --orange-dark: #d44a18;
+    --orange-soft: #fdeadf;
+    --line: #e2e9ec;
+    --radius: 14px;
+    --accent: #3e7a4e;
+    --accent-dark: #2d5e3b;
+    --accent-soft: #e9f3eb;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Poppins", "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+  h1, h2, h3 { font-weight: 600; line-height: 1.25; }
+  a { color: var(--accent-dark); text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 13px 24px; max-width: 1080px; margin: 0 auto; }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo svg { width: 38px; height: 38px; }
+  .logo .word { font-weight: 600; font-size: 1.3rem; color: var(--navy); }
+  .logo .word span { color: var(--teal); }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { color: var(--ink-soft); font-size: 0.93rem; font-weight: 500; }
+  .nav-links a:hover { color: var(--accent-dark); }
+  .btn { display: inline-block; background: var(--orange); color: #fff !important; padding: 10px 24px; border-radius: 999px; font-size: 0.93rem; font-weight: 600; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+  .btn:hover { background: var(--orange-dark); transform: translateY(-1px); }
+  .btn-lg { padding: 14px 34px; font-size: 1.02rem; }
+
+  .agent-hero { padding: 72px 0 64px; }
+  .agent-hero-inner { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
+  .agent-hero img.avatar { width: 280px; height: 280px; border-radius: 50%; box-shadow: 0 14px 40px rgba(31,42,68,0.16); }
+  .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 5px 13px; border-radius: 999px; margin-bottom: 14px; }
+  .badge.preview { background: var(--accent-soft); color: var(--accent-dark); }
+  .archetype { font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--accent-dark); margin-bottom: 6px; }
+  .agent-hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700; margin-bottom: 8px; }
+  .agent-hero .tagline { font-size: 1.25rem; color: var(--accent-dark); font-weight: 500; font-style: italic; margin-bottom: 18px; }
+  .agent-hero .about { color: var(--ink-soft); max-width: 560px; margin-bottom: 26px; }
+
+  .mission { background: var(--accent-soft); border-radius: var(--radius); padding: 30px 34px; display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; margin: 0 0 64px; }
+  .mission .icon { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .mission .icon svg { width: 26px; height: 26px; stroke: #fff; }
+  .mission h2 { font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 4px; }
+  .mission p { color: var(--ink); font-size: 1.05rem; font-weight: 500; }
+
+  .section-title { text-align: center; font-size: 1.8rem; margin-bottom: 40px; }
+  .pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 72px; }
+  .pcard { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 22px; text-align: center; box-shadow: 0 2px 10px rgba(31,42,68,0.04); }
+  .pcard .icon { width: 48px; height: 48px; margin: 0 auto 14px; border-radius: 50%; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; }
+  .pcard .icon svg { width: 24px; height: 24px; stroke: var(--accent-dark); }
+  .pcard h3 { font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }
+  .pcard p { font-size: 0.91rem; color: var(--ink-soft); margin-bottom: 12px; }
+  .pcard .quote { font-size: 0.86rem; font-style: italic; color: var(--accent-dark); font-weight: 500; }
+
+  .how { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 72px 0; margin-bottom: 72px; }
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+  .step { position: relative; padding-top: 8px; }
+  .step .num { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .step h3 { font-size: 1rem; margin-bottom: 8px; }
+  .step p { font-size: 0.9rem; color: var(--ink-soft); }
+
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 72px; }
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px; box-shadow: 0 2px 10px rgba(31,42,68,0.04); }
+  .panel h2 { font-size: 1.2rem; margin-bottom: 20px; color: var(--navy); }
+  .trait { display: grid; grid-template-columns: auto 1fr; gap: 14px; margin-bottom: 18px; align-items: start; }
+  .trait:last-child { margin-bottom: 0; }
+  .trait .dot { width: 34px; height: 34px; border-radius: 50%; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .trait .dot svg { width: 17px; height: 17px; stroke: var(--accent-dark); }
+  .trait h3 { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 2px; }
+  .trait p { font-size: 0.93rem; color: var(--ink-soft); }
+  .quote-block { background: var(--accent-soft); border-radius: var(--radius); padding: 26px 30px; font-style: italic; font-weight: 500; color: var(--ink); margin-top: 24px; }
+
+  .cta { background: var(--navy); color: #e8edf5; border-radius: var(--radius); padding: 52px 44px; text-align: center; margin-bottom: 72px; }
+  .cta h2 { color: #fff; font-size: 1.7rem; margin-bottom: 12px; }
+  .cta p { color: #aeb9cf; max-width: 560px; margin: 0 auto 26px; }
+  .cta .note { font-size: 0.86rem; margin-top: 18px; color: #8d99b5; }
+
+  .onepager { text-align: center; margin-bottom: 80px; }
+  .onepager img { max-width: 760px; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(31,42,68,0.10); }
+  .onepager p { margin-top: 14px; font-size: 0.92rem; color: var(--ink-soft); }
+
+  footer { border-top: 1px solid var(--line); padding: 36px 0; background: #fff; }
+  .foot-inner { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; color: var(--ink-soft); font-size: 0.88rem; }
+
+  @media (max-width: 860px) {
+    .agent-hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .agent-hero img.avatar { margin: 0 auto; width: 210px; height: 210px; }
+    .agent-hero .about { margin-left: auto; margin-right: auto; }
+    .pillar-grid { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .twocol { grid-template-columns: 1fr; }
+    .mission { grid-template-columns: 1fr; text-align: center; }
+    .mission .icon { margin: 0 auto; }
+    .nav-links a:not(.btn) { display: none; }
+  }
+  @media (max-width: 520px) {
+    .pillar-grid, .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="spirantix-mark">
+      <path d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="#8FE0C6"/>
+      <path d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="#4FC9B5" transform="rotate(60 50 50)"/>
+      <path d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="#2BAE9E" transform="rotate(120 50 50)"/>
+      <path d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="#2E8FB8" transform="rotate(180 50 50)"/>
+      <path d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="#2368A8" transform="rotate(240 50 50)"/>
+      <path d="M50,50 C50,25 60,13 83,13 C72,24 73,37 50,50Z" fill="#1B4E82" transform="rotate(300 50 50)"/>
+      <circle cx="50" cy="50" r="7" fill="#ffffff"/>
+      <circle cx="50" cy="50" r="3.2" fill="#2BAE9E"/>
+    </g>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.4 4.6a5.5 5.5 0 0 0-7.8 0L12 5.2l-.6-.6a5.5 5.5 0 0 0-7.8 7.8l.6.6L12 20.8 19.8 13l.6-.6a5.5 5.5 0 0 0 0-7.8z" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="none" stroke-width="2"/><path d="M21 15l-5-5L5 21" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l2-5.2a8.4 8.4 0 1 1 16-4.3z" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" fill="none" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3" fill="none" stroke-width="2"/><path d="M19 10a7 7 0 0 1-14 0M12 19v3" fill="none" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z" fill="none" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" fill="none" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h7a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2zM22 4h-7a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z" fill="none" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" fill="none" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#spirantix-mark"/></svg>
+        <div class="word" style="color:var(--navy)">Spirantix<span>.ai</span></div>
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#products">All Agents</a>
+      <a href="emery.html">Emery</a>
+      <a href="addie.html">Addie</a>
+      <a href="mailto:hello@spirantix.ai" class="btn">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<header class="agent-hero wrap">
+  <div class="agent-hero-inner">
+    <img class="avatar" src="assets/capsa-avatar.png" alt="Capsa, the Curator: an illustrated portrait of a thoughtful young woman with glasses holding a family album">
+    <div>
+      <div class="badge preview">Coming Soon</div>
+      <div class="archetype">The Curator &middot; She keeps the stories.</div>
+      <h1>Capsa</h1>
+      <p class="tagline">Your photos, your albums, your stories. In one place you control.</p>
+      <p class="about">Capsa brings all your photos and memories together, no matter where they're stored, and helps you turn them into beautiful albums and storytelling experiences. From scattered snapshots to narrated slideshows, Capsa organizes, enhances, and preserves your legacy exactly the way you want it.</p>
+      <a href="mailto:hello@spirantix.ai?subject=Capsa%20updates" class="btn btn-lg">Get Notified at Launch</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="mission">
+    <div class="icon"><svg aria-hidden="true"><use href="#i-photo"/></svg></div>
+    <div>
+      <h2>Mission</h2>
+      <p>To help you gather, organize, and share your memories through albums and stories that last for generations.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">What Capsa does</h2>
+  <div class="pillar-grid">
+    <div class="pcard">
+      <div class="icon"><svg aria-hidden="true"><use href="#i-folder"/></svg></div>
+      <h3>Gathers</h3>
+      <p>Finds photos across all your devices and cloud accounts and brings them together.</p>
+      <div class="quote">"All your photos. All in one place."</div>
+    </div>
+    <div class="pcard">
+      <div class="icon"><svg aria-hidden="true"><use href="#i-photo"/></svg></div>
+      <h3>Organizes</h3>
+      <p>Sorts and organizes by people, dates, places, and events, so you can find anything.</p>
+      <div class="quote">"Finally, a home for every memory."</div>
+    </div>
+    <div class="pcard">
+      <div class="icon"><svg aria-hidden="true"><use href="#i-mic"/></svg></div>
+      <h3>Narrates</h3>
+      <p>Creates slideshows with your photos and your voice. Your stories, in your words.</p>
+      <div class="quote">"This is our story. Told your way."</div>
+    </div>
+    <div class="pcard">
+      <div class="icon"><svg aria-hidden="true"><use href="#i-lock"/></svg></div>
+      <h3>Protects</h3>
+      <p>Your full-resolution photos stay on your device or local storage, with optional cloud backup.</p>
+      <div class="quote">"Private by design. Yours to control."</div>
+    </div>
+  </div>
+
+</main>
+
+<section class="how">
+  <div class="wrap">
+    <h2 class="section-title">How Capsa works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Bring it all in</h3>
+        <p>Capsa connects to your sources and gathers your photos.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Get organized</h3>
+        <p>Everything is sorted by people, places, dates, and events.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Build albums</h3>
+        <p>Create albums the way you used to, or let Capsa help.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h3>Tell your story</h3>
+        <p>Add your voice to photos and create beautiful narrated slideshows.</p>
+      </div>
+      <div class="step">
+        <div class="num">5</div>
+        <h3>Share &amp; preserve</h3>
+        <p>Share with family and know your legacy is safe and private.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <div class="twocol">
+    <div class="panel">
+      <h2>Who Capsa is</h2>
+      <div class="trait">
+        <div class="dot"><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+        <div><h3>Role</h3><p>AI photo curator and storyteller.</p></div>
+      </div>
+      <div class="trait">
+        <div class="dot"><svg aria-hidden="true"><use href="#i-heart"/></svg></div>
+        <div><h3>Personality</h3><p>Organized, thoughtful, creative, and warm.</p></div>
+      </div>
+      <div class="trait">
+        <div class="dot"><svg aria-hidden="true"><use href="#i-chat"/></svg></div>
+        <div><h3>Voice</h3><p>Clear, engaging, encouraging, and story-focused.</p></div>
+      </div>
+      <div class="trait">
+        <div class="dot"><svg aria-hidden="true"><use href="#i-lock"/></svg></div>
+        <div><h3>Privacy</h3><p>Private by design. Your collection stays with you.</p></div>
+      </div>
+      <div class="quote-block">"All your photos. All your stories. All in one place."</div>
+    </div>
+    <div class="panel">
+      <h2>Capsa's values</h2>
+      <div class="trait">
+        <div class="dot"><svg aria-hidden="true"><use href="#i-folder"/></svg></div>
+        <div><h3>Your collection, your control</h3><p>You decide what to keep and share.</p></div>
+      </div>
+      <div class="trait">
+        <div class="dot"><svg aria-hidden="true"><use href="#i-spark"/></svg></div>
+        <div><h3>Organized &amp; meaningful</h3><p>Order brings clarity and joy.</p></div>
+      </div>
+      <div class="trait">
+        <div class="dot"><svg aria-hidden="true"><use href="#i-book"/></svg></div>
+        <div><h3>Story comes first</h3><p>Every photo has a story worth telling.</p></div>
+      </div>
+      <div class="trait">
+        <div class="dot"><svg aria-hidden="true"><use href="#i-shield"/></svg></div>
+        <div><h3>Private &amp; secure</h3><p>Your memories stay in your hands.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Capsa is coming soon</h2>
+    <p>Capsa will be available on Claude and ChatGPT, with a downloadable mobile app for iOS and Android to follow. Want to be first in line, or help shape her during early access? We'd love to hear from you.</p>
+    <a href="mailto:hello@spirantix.ai?subject=Capsa%20updates" class="btn btn-lg">Get Notified</a>
+    <div class="note">Emery, Capsa's sister agent, is in beta now. <a href="emery.html" style="color:#8fe0c6">Meet Emery</a>.</div>
+  </div>
+
+  <div class="onepager">
+    <h2 class="section-title">Capsa at a glance</h2>
+    <a href="assets/capsa-onepager.png" target="_blank" rel="noopener">
+      <img src="assets/capsa-onepager.webp" alt="Capsa one-page overview: about, mission, what she does, how she works, and her values" loading="lazy">
+    </a>
+    <p><a href="assets/capsa-onepager.png" download>Download the Capsa one-pager</a> to share with family.</p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>&copy; 2026 <a href="https://www.futureinsites.com" target="_blank" rel="noopener">FutureInSites</a>, LLC.</div>
+  </div>
+</footer>
+
+</body>
+</html>
