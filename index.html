@@ -83,8 +83,12 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   }
   .philosophy .snap { opacity: 0.16; filter: saturate(0.75); }
-  .philosophy .snap.s1 { width: 250px; left: -34px; bottom: -34px; transform: rotate(-7deg); }
-  .philosophy .snap.s2 { width: 270px; right: -44px; top: 36px; transform: rotate(6deg); }
+  .philosophy .snap.s1 { width: 250px; left: calc(50% - 670px); bottom: -20px; transform: rotate(-7deg); }
+  .philosophy .snap.s2 { width: 270px; right: calc(50% - 680px); top: 60px; transform: rotate(6deg); }
+  @media (max-width: 1380px) {
+    .philosophy .snap.s1 { left: -34px; }
+    .philosophy .snap.s2 { right: -44px; }
+  }
   .contact .snap { opacity: 0.85; border-color: #fff; box-shadow: 0 8px 24px rgba(31,42,68,0.18); }
   .contact .snap.s1 { width: 215px; left: 4%; top: 90px; transform: rotate(-6deg); }
   .contact .snap.s2 { width: 230px; right: 4%; top: 70px; transform: rotate(5deg); }
@@ -109,8 +113,8 @@
     background: var(--navy);
   }
   .pillar .medallion svg { width: 30px; height: 30px; position: relative; }
-  .pillar:nth-child(1) .medallion { box-shadow: 0 0 0 2px #8fe0c6, 0 0 26px rgba(143,224,198,0.35); }
-  .pillar:nth-child(1) .medallion svg { stroke: #8fe0c6; }
+  .pillar:nth-child(1) .medallion { box-shadow: 0 0 0 2px #a78bfa, 0 0 26px rgba(167,139,250,0.45); }
+  .pillar:nth-child(1) .medallion svg { stroke: #c4b5fd; }
   .pillar:nth-child(2) .medallion { box-shadow: 0 0 0 2px #2bae9e, 0 0 26px rgba(43,174,158,0.4); }
   .pillar:nth-child(2) .medallion svg { stroke: #4fc9b5; }
   .pillar:nth-child(3) .medallion { box-shadow: 0 0 0 2px #2e8fb8, 0 0 26px rgba(46,143,184,0.4); }

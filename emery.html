@@ -105,9 +105,16 @@
   .cta .note { font-size: 0.86rem; margin-top: 18px; color: #8d99b5; }
 
   /* One-pager */
-  .onepager { text-align: center; margin-bottom: 80px; }
-  .onepager img { max-width: 760px; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(31,42,68,0.10); }
+  .onepager { text-align: center; margin-bottom: 72px; }
+  .onepager img { max-width: 760px; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(31,42,68,0.10); cursor: zoom-in; }
   .onepager p { margin-top: 14px; font-size: 0.92rem; color: var(--ink-soft); }
+
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(31,42,68,0.88); padding: 64px 18px 32px; overflow: auto; text-align: center; }
+  .lightbox.open { display: block; }
+  .lightbox img { max-width: min(1280px, 96vw); width: 100%; border-radius: 8px; background: #fff; }
+  .lb-close { position: fixed; top: 16px; right: 20px; z-index: 101; background: var(--orange); color: #fff; border: none; border-radius: 999px; padding: 10px 24px; font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.95rem; cursor: pointer; }
+  .lb-close:hover { background: var(--orange-dark); }
 
   footer { border-top: 1px solid var(--line); padding: 36px 0; background: #fff; }
   .foot-inner { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; color: var(--ink-soft); font-size: 0.88rem; }
@@ -193,6 +200,12 @@
       <h2>Mission</h2>
       <p>To help people feel connected, confident, and seen by remembering what matters most to them.</p>
     </div>
+  </div>
+
+  <div class="onepager">
+    <h2 class="section-title">Emery at a glance</h2>
+    <img src="assets/emery-onepager.webp" alt="Emery one-page overview: about, mission, what she does, how she works, and her values" loading="lazy" onclick="document.getElementById('lightbox').classList.add('open')">
+    <p>Click the chart to enlarge, or <a href="assets/emery-onepager.png" download>download the Emery one-pager</a> to share with family or caregivers.</p>
   </div>
 
   <h2 class="section-title">What Emery does</h2>
@@ -304,15 +317,15 @@
     <div class="note">Capsa and Addie, Emery's sister agents, are coming soon.</div>
   </div>
 
-  <div class="onepager">
-    <h2 class="section-title">Emery at a glance</h2>
-    <a href="assets/emery-onepager.png" target="_blank" rel="noopener">
-      <img src="assets/emery-onepager.webp" alt="Emery one-page overview: about, mission, what she does, how she works, and her values" loading="lazy">
-    </a>
-    <p><a href="assets/emery-onepager.png" download>Download the Emery one-pager</a> to share with family or caregivers.</p>
-  </div>
-
 </main>
+
+<div id="lightbox" class="lightbox" onclick="if(event.target===this)this.classList.remove('open')">
+  <button class="lb-close" onclick="document.getElementById('lightbox').classList.remove('open')">&#10005; Close</button>
+  <img src="assets/emery-onepager.png" alt="Emery one-page overview, enlarged">
+</div>
+<script>
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open'); });
+</script>
 
 <footer>
   <div class="wrap foot-inner">

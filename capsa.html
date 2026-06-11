@@ -97,9 +97,16 @@
   .cta p { color: #aeb9cf; max-width: 560px; margin: 0 auto 26px; }
   .cta .note { font-size: 0.86rem; margin-top: 18px; color: #8d99b5; }
 
-  .onepager { text-align: center; margin-bottom: 80px; }
-  .onepager img { max-width: 760px; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(31,42,68,0.10); }
+  .onepager { text-align: center; margin-bottom: 72px; }
+  .onepager img { max-width: 760px; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(31,42,68,0.10); cursor: zoom-in; }
   .onepager p { margin-top: 14px; font-size: 0.92rem; color: var(--ink-soft); }
+
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(31,42,68,0.88); padding: 64px 18px 32px; overflow: auto; text-align: center; }
+  .lightbox.open { display: block; }
+  .lightbox img { max-width: min(1280px, 96vw); width: 100%; border-radius: 8px; background: #fff; }
+  .lb-close { position: fixed; top: 16px; right: 20px; z-index: 101; background: var(--orange); color: #fff; border: none; border-radius: 999px; padding: 10px 24px; font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.95rem; cursor: pointer; }
+  .lb-close:hover { background: var(--orange-dark); }
 
   footer { border-top: 1px solid var(--line); padding: 36px 0; background: #fff; }
   .foot-inner { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; color: var(--ink-soft); font-size: 0.88rem; }
@@ -186,6 +193,12 @@
       <h2>Mission</h2>
       <p>To help you gather, organize, and share your memories through albums and stories that last for generations.</p>
     </div>
+  </div>
+
+  <div class="onepager">
+    <h2 class="section-title">Capsa at a glance</h2>
+    <img src="assets/capsa-onepager.webp" alt="Capsa one-page overview: about, mission, what she does, how she works, and her values" loading="lazy" onclick="document.getElementById('lightbox').classList.add('open')">
+    <p>Click the chart to enlarge, or <a href="assets/capsa-onepager.png" download>download the Capsa one-pager</a> to share with family.</p>
   </div>
 
   <h2 class="section-title">What Capsa does</h2>
@@ -302,15 +315,15 @@
     <div class="note">Emery, Capsa's sister agent, is in beta now. <a href="emery.html" style="color:#8fe0c6">Meet Emery</a>.</div>
   </div>
 
-  <div class="onepager">
-    <h2 class="section-title">Capsa at a glance</h2>
-    <a href="assets/capsa-onepager.png" target="_blank" rel="noopener">
-      <img src="assets/capsa-onepager.webp" alt="Capsa one-page overview: about, mission, what she does, how she works, and her values" loading="lazy">
-    </a>
-    <p><a href="assets/capsa-onepager.png" download>Download the Capsa one-pager</a> to share with family.</p>
-  </div>
-
 </main>
+
+<div id="lightbox" class="lightbox" onclick="if(event.target===this)this.classList.remove('open')">
+  <button class="lb-close" onclick="document.getElementById('lightbox').classList.remove('open')">&#10005; Close</button>
+  <img src="assets/capsa-onepager.png" alt="Capsa one-page overview, enlarged">
+</div>
+<script>
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open'); });
+</script>
 
 <footer>
   <div class="wrap foot-inner">
