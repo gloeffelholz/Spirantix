@@ -6,26 +6,22 @@ Until the steps below are done, the function returns "Server is not configured t
 
 Note: `/api/contact` is a Vercel serverless function. It requires the site to be hosted on Vercel (or another platform that runs `api/*.js` functions). If the site is deployed as plain static hosting (e.g. GitHub Pages), the form cannot send email; in that case either move hosting to Vercel like futureinsites.com, or switch the form to a hosted form service.
 
-## 1. Resend domain
+## Current setup (June 2026)
 
-1. In the Resend dashboard (same account used for FutureInSites is fine), go to **Domains → Add Domain** and add `spirantix.ai`.
-2. Add the DNS records Resend shows (one MX, two TXT) at your DNS host for spirantix.ai, then click **Verify**.
-
-## 2. API key
-
-Resend → **API Keys → Create API Key** (e.g. `spirantix-vercel`, Sending access). Copy the `re_…` key. You can also reuse the existing FutureInSites key if you prefer one key for both projects.
-
-## 3. Environment variables in Vercel
+Submissions go to **spirantix@futureinsites.com**, sent from **forms@futureinsites.com**. Because futureinsites.com is already verified in Resend, no new domain verification is needed. Only one step remains:
 
 Vercel → Spirantix project → **Settings → Environment Variables** (Production):
 
 | Name             | Value                              |
 | ---------------- | ---------------------------------- |
-| `RESEND_API_KEY` | the `re_…` key                     |
-| `CONTACT_TO`     | `hello@spirantix.ai` (or gloeff@gmail.com to go straight to you) |
-| `CONTACT_FROM`   | `Spirantix <forms@spirantix.ai>`   |
+| `RESEND_API_KEY` | the existing FutureInSites `re_…` key (or create a new one in Resend → API Keys) |
 
-Redeploy after adding env vars.
+`CONTACT_TO` and `CONTACT_FROM` default to the futureinsites.com addresses above in the code; set them as env vars only if you want to override. Redeploy after adding the env var.
+
+## Later: switch to spirantix.ai addresses
+
+1. Resend → **Domains → Add Domain** → `spirantix.ai`; add the DNS records it shows (one MX, two TXT), then **Verify**.
+2. Set env vars `CONTACT_TO=hello@spirantix.ai` and `CONTACT_FROM=Spirantix <forms@spirantix.ai>` and redeploy.
 
 The `CONTACT_FROM` mailbox doesn't need to exist; Resend only needs the domain verified. Replies go to the submitter via the `reply_to` header.
 
